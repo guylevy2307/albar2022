@@ -6,17 +6,32 @@ import { PropertyCarComponent } from './property/property-car/property-car.compo
 import { PropertyListComponent } from './property/property-list/property-list.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HousingService } from './services/housing.service';
+import { AddCarComponent } from './property/add-car/add-car.component';
+import { Routes,RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
+const appRoutes: Routes = [
+  {
+    path:'add-car',component:AddCarComponent
+  },
+  {
+    path:'',component:PropertyListComponent
+  }
+]
 @NgModule({
   declarations: [
     AppComponent,
     PropertyCarComponent,
     PropertyListComponent,
-      NavBarComponent
+    NavBarComponent,
+    AddCarComponent,
+
    ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     HousingService

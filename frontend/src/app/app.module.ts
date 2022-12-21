@@ -12,6 +12,7 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { UserLoginComponent } from './user/user-login/user-register/user-login/user-login.component';
 import { UserRegisterComponent } from './user/user-login/user-register/user-register/user-register.component';
 import { UserServiceService } from './services/user-service.service';
+import { AlertsServiceService } from './services/alerts-service.service';
 
 const appRoutes: Routes = [
   {
@@ -47,7 +48,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     HousingService,
-    UserServiceService
+    UserServiceService,
+    AlertsServiceService
   ],
   bootstrap: [AppComponent]
 })

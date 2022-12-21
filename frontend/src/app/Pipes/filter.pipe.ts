@@ -12,7 +12,7 @@ export class FilterPipe implements PipeTransform {
       return value;
     }
     for (const item of value) {
-      if (item[propType] === filterString) {
+      if (item[propType].toLowerCase().startsWith(filterString.toLowerCase()) ) {
         resultArray.push(item);
 
       }

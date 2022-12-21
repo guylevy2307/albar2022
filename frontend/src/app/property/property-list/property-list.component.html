@@ -1,6 +1,12 @@
+<label class="accordion-header"> Find Car By Company </label>
+<input [(ngModel)]="Type" type="text" />
+<button (click)="clear()">Clear</button>
+
 <div class="row">
   <div
-    *ngFor="let property of propertyList | filter : 'Jeep' : 'Type' | sort"
+    *ngFor="
+      let property of propertyList | filter : Type : 'Type' | sort : ['Price']
+    "
     class="shadow-lg col-sm-4 p-2"
   >
     <app-property-car [property]="property"></app-property-car>

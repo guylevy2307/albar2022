@@ -9,6 +9,7 @@ import { IProp } from '../IProp';
 })
 export class PropertyListComponent implements OnInit {
   propertyList: Array<IProp> | undefined ;
+  Type = '';
 
   constructor(private housingService:HousingService){}
   ngOnInit(): void {
@@ -18,5 +19,7 @@ export class PropertyListComponent implements OnInit {
       }
     )
   }
-
+  clear() {
+  this.Type=''
+}
 }

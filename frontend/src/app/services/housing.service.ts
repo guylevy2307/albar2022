@@ -10,6 +10,9 @@ export class HousingService {
 
 constructor(private http:HttpClient) { }
 
+  getAllType(): Observable<string[]>{
+    return this.http.get<string[]>('http://localhost:5049/api/carType');
+  }
   getAllCars(): Observable<IProp[]> {
     return this.http.get('data/propertis.json').pipe(
       map(data =>{

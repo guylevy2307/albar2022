@@ -8,9 +8,10 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HousingService } from './services/housing.service';
 import { AddCarComponent } from './property/add-car/add-car.component';
 import { Routes,RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { UserLoginComponent } from './user/user-login/user-register/user-login/user-login.component';
 import { UserRegisterComponent } from './user/user-login/user-register/user-register/user-register.component';
+import { UserServiceService } from './services/user-service.service';
 
 const appRoutes: Routes = [
   {
@@ -41,10 +42,12 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    HousingService
+    HousingService,
+    UserServiceService
   ],
   bootstrap: [AppComponent]
 })

@@ -9,6 +9,8 @@ import { HousingService } from './services/housing.service';
 import { AddCarComponent } from './property/add-car/add-car.component';
 import { Routes,RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { UserLoginComponent } from './user/user-login/user-register/user-login/user-login.component';
+import { UserRegisterComponent } from './user/user-login/user-register/user-register/user-register.component';
 
 const appRoutes: Routes = [
   {
@@ -16,6 +18,12 @@ const appRoutes: Routes = [
   },
   {
     path:'',component:PropertyListComponent
+  },
+  {
+    path:'user/login',component:UserLoginComponent
+  },
+  {
+    path:'user/register',component:UserRegisterComponent
   }
 ]
 @NgModule({
@@ -25,6 +33,8 @@ const appRoutes: Routes = [
     PropertyListComponent,
     NavBarComponent,
     AddCarComponent,
+    UserLoginComponent,
+    UserRegisterComponent
 
    ],
   imports: [

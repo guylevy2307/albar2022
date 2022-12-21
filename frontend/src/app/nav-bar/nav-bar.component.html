@@ -43,6 +43,7 @@
                 class="nav-link"
                 [routerLink]="['/user/login']"
                 routerLinkActive="router-link-active"
+                *ngIf="isLogin()"
                 (click)="logout()"
                 >Logout</a
               >

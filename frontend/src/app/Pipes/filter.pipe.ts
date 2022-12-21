@@ -1,23 +1,24 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { Car } from '../model/Car';
 
 @Pipe({
   name: 'filter'
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(value: any, filterString: string, propType: string): any[] {
+  transform(cars: Car[], filterString: string, propType: string): any[] {
     const resultArray = [];
-    var temp = 1;
-    if (value)
-    {temp=0
-      }
-    if(temp||filterString===''||propType==='' )
-    {
-      return value;
+    var bool = 1
+    if (cars === undefined) {
+      bool=0
     }
-    for (const item of value) {
-      if (item[propType].toLowerCase().startsWith(filterString.toLowerCase()) ) {
-        resultArray.push(item);
+    if(bool||filterString===''||propType==='' )
+    {
+      return cars;
+    }
+    for (const car of cars) {
+      if (car.type.toLowerCase().startsWith(filterString.toLowerCase()) ) {
+        resultArray.push(car);
 
       }
     }

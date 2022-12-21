@@ -23,12 +23,11 @@ namespace WebAPI.Controllers
             var cars = await dc.Cars.ToListAsync();
             return Ok(cars);
             }
+           
             //POST api/car
         [HttpPost]
-            public async Task<IActionResult> AddCar(String type,int price){
-            Car car = new Car();
-            car.price = price;
-            car.type = type;
+            public async Task<IActionResult> AddCar(Car car ){
+            car.imageUrl = "assets/images/albarLogo.png";
             await dc.AddAsync(car);
             await dc.SaveChangesAsync();
             return Ok(car);

@@ -13,9 +13,9 @@ namespace WebAPI.Controllers
          [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[]{"toyota","ford"};
+            return new string[]{"toyota","ford","mercedes","sport car","family car"};
         }
 
-        
+
     }
 }

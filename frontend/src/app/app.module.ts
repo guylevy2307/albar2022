@@ -16,6 +16,7 @@ import { AlertsService } from './services/alerts.service';
 import { AuthService } from './services/auth.service';
 import { FilterPipe } from './Pipes/filter.pipe';
 import { SortPipe } from './Pipes/sort.pipe';
+import { CarService } from './services/car.service';
 
 const appRoutes: Routes = [
   {
@@ -55,6 +56,7 @@ const appRoutes: Routes = [
     HousingService,
     UserService,
     AlertsService,
+    CarService,
     AuthService
   ],
   bootstrap: [AppComponent]

@@ -11,8 +11,11 @@ import { Routes,RouterModule } from '@angular/router';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { UserLoginComponent } from './user/user-login/user-register/user-login/user-login.component';
 import { UserRegisterComponent } from './user/user-login/user-register/user-register/user-register.component';
-import { UserServiceService } from './services/user-service.service';
-import { AlertsServiceService } from './services/alerts-service.service';
+import { UserService } from './services/user.service';
+import { AlertsService } from './services/alerts.service';
+import { AuthService } from './services/auth.service';
+import { FilterPipe } from './Pipes/filter.pipe';
+import { SortPipe } from './Pipes/sort.pipe';
 
 const appRoutes: Routes = [
   {
@@ -36,7 +39,9 @@ const appRoutes: Routes = [
     NavBarComponent,
     AddCarComponent,
     UserLoginComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    FilterPipe,
+    SortPipe
 
    ],
   imports: [
@@ -48,8 +53,9 @@ const appRoutes: Routes = [
   ],
   providers: [
     HousingService,
-    UserServiceService,
-    AlertsServiceService
+    UserService,
+    AlertsService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

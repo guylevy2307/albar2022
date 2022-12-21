@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup,Validators,FormBuilder } from '@angular/forms';
 import { User } from 'src/app/model/User';
-import { AlertsServiceService } from 'src/app/services/alerts-service.service';
-import { UserServiceService } from 'src/app/services/user-service.service';
+import { AlertsService } from 'src/app/services/alerts.service';
+import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-register',
@@ -13,7 +14,7 @@ export class UserRegisterComponent implements OnInit {
 
   registerationForm!: FormGroup;
 
-  constructor(private fb: FormBuilder,private userService:UserServiceService,private alertService:AlertsServiceService) { };
+  constructor(private fb: FormBuilder,private userService:UserService,private alertService:AlertsService,private router: Router) { };
   user!: User;
   ngOnInit() {
     this.createRegisterationForm();
@@ -57,6 +58,7 @@ export class UserRegisterComponent implements OnInit {
     this.userService.addUser(this.userData());
       this.registerationForm.reset();
       this.alertService.success("User added successfully! ");
+      this.router.navigate(['/user/login'])
     }
     else {
       this.alertService.error("Unvalid details, please fix and send again ");

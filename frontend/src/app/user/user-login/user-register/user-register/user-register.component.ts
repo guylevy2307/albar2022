@@ -1,5 +1,7 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { FormControl, FormGroup,Validators,FormBuilder } from '@angular/forms';
+import { User } from 'src/app/model/User';
+import { UserServiceService } from 'src/app/services/user-service.service';
 
 @Component({
   selector: 'app-user-register',
@@ -9,11 +11,14 @@ import { FormControl, FormGroup,Validators,FormBuilder } from '@angular/forms';
 export class UserRegisterComponent implements OnInit {
 
   registerationForm!: FormGroup;
-  constructor(private fb: FormBuilder) { };
-  user: any = {};
+
+  constructor(private fb: FormBuilder,private userService:UserServiceService) { };
+  user!: User;
   ngOnInit() {
     this.createRegisterationForm();
   }
+
+
   createRegisterationForm() {
     this.registerationForm = this.fb.group({
       userName:[null,[Validators.required]],
@@ -21,20 +26,36 @@ export class UserRegisterComponent implements OnInit {
       password:[null,[Validators.required]]
     })
   }
-  onSubmit() {
+  userData(): User {
+    return this.user = {
+      userName: this.userName.value,
+      email: this.email.value,
+      password: this.password.value
+    }
 
-    console.log(this.registerationForm)
-    this.user = Object.assign(this.user, this.registerationForm.value);
-    this.addUser(this.user);
   }
-  addUser(user: any) {
-    let users= [];
-    if (localStorage.getItem('Users')) {
-      users = JSON.parse(localStorage.getItem('Users')!);
-      users = [user, ...users];
-    } else {
-      users = [user];
-}
-    localStorage.setItem('Users', JSON.stringify(users));
+
+
+    /* get methods for user*/
+    get userName(){
+      return this.registerationForm.get('userName') as FormControl;
+
+    }
+    get email(){
+      return this.registerationForm.get('email') as FormControl;
+
+    }
+    get password(){
+      return this.registerationForm.get('password') as FormControl;
+
+    }
+
+
+  onSubmit() {
+    if (this.registerationForm.valid) {
+    this.userService.addUser(this.userData());
+    this.registerationForm.reset();
+    }
   }
+
 }

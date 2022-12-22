@@ -1,7 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebAPI.Data;
@@ -34,6 +32,29 @@ namespace WebAPI.Controllers
             return Ok(car);
 
         }
-       
+        [HttpGet("/api/[controller]/{id}")]
+        public async Task<IActionResult> getPrice(int id){
+            var car = await dc.Cars.FindAsync(id);
+            if (car == null)
+            {
+                return null;
+            }
+             return Ok(car.price);
+            }
+             [HttpPatch("/api/[controller]/{id}")]
+        public async Task<IActionResult> updatePrice(int id,[FromBody] JsonPatchDocument<Car> patchDoc){
+            var car = await dc.Cars.FindAsync(id);
+            if (car == null)
+            {
+                return null;
+            }
+            if (patchDoc != null)
+            {
+                patchDoc.ApplyTo(car,ModelState);
+                 await dc.SaveChangesAsync();  
+            }
+           
+            return Ok(car.price);
+            }
     }
 }

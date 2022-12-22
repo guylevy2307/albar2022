@@ -1,18 +1,30 @@
 <div class="card">
-  <div class="card-header">Edit Car Price</div>
+  <div class="card-header">Edit Car Price For Car Number {{ carId }}</div>
   <div class="card-body">
-    <form [formGroup]="" (ngSubmit)="onSubmit()">
+    <form (ngSubmit)="onSubmit()">
       <div class="form-group col 12">
         <label for="Price"> Current Renting Price:</label>
-        <input formControlName="oldPrice" type="number" class="form-control" />
+        <input
+          type="number"
+          [(ngModel)]="oldPrice"
+          name="oldPrice"
+          class="form-control"
+          value="{{ oldPrice }}"
+          disabled
+        />
       </div>
       <div class="form-group col 12">
         <label for="Price"> New Renting Price:</label>
-        <input formControlName="newPrice" type="number" class="form-control" />
+        <input
+          [(ngModel)]="newPrice"
+          type="number"
+          class="form-control"
+          name="newPrice"
+        />
       </div>
       <br />
       <div class="form-group col 12" style="text-align: center">
-        <button type="submit" class="btn btn-success">Add Car</button>
+        <button type="submit" class="btn btn-success">Change Price</button>
       </div>
     </form>
   </div>

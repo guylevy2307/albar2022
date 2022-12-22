@@ -31,7 +31,11 @@ const appRoutes: Routes = [
   },
   {
     path:'user/register',component:UserRegisterComponent
-  }
+  },
+  {
+
+  path:'editCar/:id',component:EditCarComponent
+}
 ]
 @NgModule({
   declarations: [

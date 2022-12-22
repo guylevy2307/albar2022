@@ -6,5 +6,7 @@
     <h1>{{ property.type }}</h1>
     <h2>{{ property.price }}</h2>
   </div>
-  <button class="btn btn-success">Edit</button>
+  <button class="btn btn-success" routerLink="/editCar/{{ property.id }}">
+    Edit
+  </button>
 </div>

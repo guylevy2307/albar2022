@@ -16,14 +16,19 @@ namespace WebAPI.Controllers
         public userController(DataContext dc){
             this.dc = dc;
         }
-//api/user/login
-          [HttpPost("login")]
-            public async Task<IActionResult> login(string email,string password ){
-            var user = dc.Users.FirstOrDefault(item => item.password == password && item.email == email);
-            if(user==null){
-                return null;
+        //api/user/login
+        [HttpPost("login")]
+        public IActionResult login(userLogin userLogin)
+        {
+            var user = dc.Users.FirstOrDefault(item => item.password == userLogin.password && item.email == userLogin.email);
+            if (user == null)
+            {
+                return Unauthorized();
             }
-            return Ok(user);
+            var userResponseLogin = new userResponseLogin();
+            userResponseLogin.email = userLogin.email;
+            userResponseLogin.token = userResponseLogin.createToken(user);
+            return Ok(userResponseLogin);
 
         }
         [HttpPost("register")]

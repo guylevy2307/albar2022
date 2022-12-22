@@ -1,6 +1,10 @@
 using WebAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +15,26 @@ builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors();
+var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("this is the key for app"));
+ builder.Services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+
+            }).AddJwtBearer(
+               x =>
+               {
+                   x.RequireHttpsMetadata = false;
+                   x.SaveToken = true;
+                   x.TokenValidationParameters = new TokenValidationParameters
+                   {
+                       ValidateIssuerSigningKey = true,
+                       IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("A_VERY_SECRET_SECURITY_KEY_FOR_JWT_AUTH")),
+                       ValidateAudience = false,
+                       ValidateIssuer = false,
+                   };
+               }
+                );
 builder.Services.AddDbContext<DataContext>(
     opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 var app = builder.Build();
@@ -22,6 +46,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseCors(m=>m.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

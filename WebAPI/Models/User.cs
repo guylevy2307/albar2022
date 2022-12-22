@@ -1,8 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
+using Microsoft.IdentityModel.Tokens;
 
 namespace WebAPI.Models
 {
@@ -23,5 +27,6 @@ namespace WebAPI.Models
             this.password = password;
             this.email = email;
         }
+       
     }
 }

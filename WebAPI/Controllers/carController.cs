@@ -1,4 +1,5 @@
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +24,7 @@ namespace WebAPI.Controllers
             }
            
             //POST api/car
+            [Authorize]
         [HttpPost]
             public async Task<IActionResult> AddCar(Car car ){
             car.imageUrl = "assets/images/albarLogo.png";
@@ -31,6 +33,7 @@ namespace WebAPI.Controllers
             return Ok(car);
 
         }
+        [Authorize]
         [HttpGet("/api/[controller]/{id}")]
         public async Task<IActionResult> getPrice(int id){
             var car = await dc.Cars.FindAsync(id);
@@ -40,6 +43,7 @@ namespace WebAPI.Controllers
             }
              return Ok(car.price);
             }
+             [Authorize]
              [HttpPatch("/api/[controller]/{id}")]
         public async Task<IActionResult> updatePrice(int id,[FromBody] JsonPatchDocument<Car> patchDoc){
             var car = await dc.Cars.FindAsync(id);

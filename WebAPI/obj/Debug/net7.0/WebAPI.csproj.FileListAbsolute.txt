@@ -77,3 +77,4 @@ C:\angular9\albar2022\WebAPI\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\angular9\albar2022\WebAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\angular9\albar2022\WebAPI\bin\Debug\net7.0\Newtonsoft.Json.dll
 C:\angular9\albar2022\WebAPI\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
+C:\angular9\albar2022\WebAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

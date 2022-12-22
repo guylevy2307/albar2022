@@ -14,11 +14,13 @@ export class CarService {
    httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
-
+      'Authorization': 'my-auth-token'
     })
-  };
+   };
+  serverUrl="http://localhost:5049/api"
   addCar(addedCar: Car): Observable<any>{
-    return this.http.post("http://localhost:5049/api/car", addedCar, this.httpOptions);
+    return this.http.post(this.serverUrl+"/car", addedCar, this.httpOptions);
+
 
 
 }

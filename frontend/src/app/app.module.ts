@@ -17,6 +17,7 @@ import { AuthService } from './services/auth.service';
 import { FilterPipe } from './Pipes/filter.pipe';
 import { SortPipe } from './Pipes/sort.pipe';
 import { CarService } from './services/car.service';
+import { EditCarComponent } from './property/edit-car/editCar/editCar.component';
 
 const appRoutes: Routes = [
   {
@@ -41,6 +42,7 @@ const appRoutes: Routes = [
     AddCarComponent,
     UserLoginComponent,
     UserRegisterComponent,
+    EditCarComponent,
     FilterPipe,
     SortPipe
 

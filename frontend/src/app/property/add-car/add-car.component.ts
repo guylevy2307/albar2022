@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { subscribeOn } from 'rxjs';
 import { AlertsService } from 'src/app/services/alerts.service';
 import { HousingService } from 'src/app/services/housing.service';
-import { UserService } from 'src/app/services/user.service';
+import { Car } from 'src/app/model/Car';
+import { CarService } from 'src/app/services/car.service';
 
 @Component({
   selector: 'app-add-car',
@@ -14,9 +15,9 @@ import { UserService } from 'src/app/services/user.service';
 export class AddCarComponent implements OnInit {
   carTypeList!: string[];
   addCarForm!: FormGroup;
-
-  constructor(private fb: FormBuilder, private houseService: HousingService, private alertService: AlertsService, private router: Router) { }
-
+  addedCar!: Car;
+  constructor(private fb: FormBuilder, private houseService: HousingService, private alertService: AlertsService, private router: Router,private carService:CarService) { }
+  car!: Car;
   ngOnInit() {
     this.createForm();
     this.houseService.getAllType().subscribe(data => {
@@ -30,10 +31,28 @@ export class AddCarComponent implements OnInit {
       price:[null,[Validators.required]]
     })
   }
+  carData(): Car {
+    return this.car = {
+      id: 0,
+      type: this.type.value,
+      price: this.price.value,
+      imageUrl:''
+    }
+  }
+  get price(){
+    return this.addCarForm.get('price') as FormControl;
 
+  }
+  get type(){
+    return this.addCarForm.get('type') as FormControl;
+
+  }
   onSubmit() {
     if (this.addCarForm.valid) {
-    //this.carService.addUser(this.userData());
+      console.log(this.carData())
+      this.carService.addCar(this.carData()).subscribe(
+        data=>this.addedCar=data
+      );
       this.addCarForm.reset();
       this.alertService.success("Car added successfully! ");
       this.router.navigate(['/'])

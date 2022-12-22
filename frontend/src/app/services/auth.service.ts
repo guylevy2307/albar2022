@@ -17,7 +17,16 @@ export class AuthService {
       'Authorization': 'my-auth-token'
     })
    };
-
+   public getToken(): any {
+    return localStorage.getItem('token');
+   }
+   public isAuthenticated(): boolean {
+    // get the token
+    const token = this.getToken();
+    // return a boolean reflecting
+    // whether or not the token is expired
+    return tokenNotExpired(null, token);
+  }
 login(loginUser: UserLogin): Observable<any>{
 
    return this.http.post(this.serverUrl+"/login", loginUser, this.httpOptions);
@@ -25,3 +34,7 @@ login(loginUser: UserLogin): Observable<any>{
 
 
 }
+function tokenNotExpired(arg0: null, token: any): boolean {
+  throw new Error('Function not implemented.');
+}
+

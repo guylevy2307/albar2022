@@ -15,5 +15,13 @@ namespace WebAPI.Models
         public string password { get; set; }
          [Required]
         public string email { get; set; }
+
+        public User( string userName, string password, string email)
+        {
+          
+            this.userName = userName;
+            this.password = password;
+            this.email = email;
+        }
     }
 }

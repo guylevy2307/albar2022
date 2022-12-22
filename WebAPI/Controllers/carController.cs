@@ -25,7 +25,6 @@ namespace WebAPI.Controllers
             //POST api/car
         [HttpPost]
             public async Task<IActionResult> AddCar(Car car ){
-            Console.WriteLine("added car!");
             car.imageUrl = "assets/images/albarLogo.png";
             await dc.AddAsync(car);
             await dc.SaveChangesAsync();

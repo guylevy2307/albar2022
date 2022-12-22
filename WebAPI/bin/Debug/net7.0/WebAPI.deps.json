@@ -8,7 +8,6 @@
     ".NETCoreApp,Version=v7.0": {
       "WebAPI/1.0.0": {
         "dependencies": {
-          "Acamti.JsonPatchDocument.Mapper": "1.0.1",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "7.0.0",
           "Microsoft.EntityFrameworkCore": "7.0.0",
           "Microsoft.EntityFrameworkCore.Design": "7.0.0",
@@ -17,18 +16,6 @@
         },
         "runtime": {
           "WebAPI.dll": {}
-        }
-      },
-      "Acamti.JsonPatchDocument.Mapper/1.0.1": {
-        "dependencies": {
-          "Microsoft.AspNetCore.JsonPatch": "7.0.0",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0"
-        },
-        "runtime": {
-          "lib/netstandard2.1/Acamti.JsonPatchDocument.Mapper.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
         }
       },
       "Azure.Core/1.24.0": {
@@ -721,13 +708,6 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
-    },
-    "Acamti.JsonPatchDocument.Mapper/1.0.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-j2BDPk1GV2241+3PoI2oyuvsOQyv3Z259mKq8P403gRfDvbvtdpyrHwDObQGTICZ2qkqRiL27+rJSNziGMuVLQ==",
-      "path": "acamti.jsonpatchdocument.mapper/1.0.1",
-      "hashPath": "acamti.jsonpatchdocument.mapper.1.0.1.nupkg.sha512"
     },
     "Azure.Core/1.24.0": {
       "type": "package",

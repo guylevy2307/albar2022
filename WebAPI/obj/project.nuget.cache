@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "SZLj2wbicVl2aD/Oq7SgQ3vGG8O1nKnSONRRN7zLpRBsiu4W67Cb72cpgWqsmQQn/cRUyX7xLgV01GwhVxkVmA==",
+  "dgSpecHash": "bgIWc//vZWPdTiqt3Gt/VUtFq0G368GCERWrREV3F8krkfq/Dzk27HJM+8V0o2s2g7wZzODI2ZaPl4ivUlE52Q==",
   "success": true,
-  "projectFilePath": "c:\\angular9\\albar2022\\WebAPI\\WebAPI.csproj",
+  "projectFilePath": "C:\\angular9\\albar2022\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\guyle\\.nuget\\packages\\acamti.jsonpatchdocument.mapper\\1.0.1\\acamti.jsonpatchdocument.mapper.1.0.1.nupkg.sha512",
     "C:\\Users\\guyle\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\guyle\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\guyle\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

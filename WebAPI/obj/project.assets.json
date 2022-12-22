@@ -2,19 +2,6 @@
   "version": 3,
   "targets": {
     "net7.0": {
-      "Acamti.JsonPatchDocument.Mapper/1.0.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNetCore.JsonPatch": "3.0.0",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.0.0"
-        },
-        "compile": {
-          "lib/netstandard2.1/Acamti.JsonPatchDocument.Mapper.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.1/Acamti.JsonPatchDocument.Mapper.dll": {}
-        }
-      },
       "Azure.Core/1.24.0": {
         "type": "package",
         "dependencies": {
@@ -1291,18 +1278,6 @@
     }
   },
   "libraries": {
-    "Acamti.JsonPatchDocument.Mapper/1.0.1": {
-      "sha512": "j2BDPk1GV2241+3PoI2oyuvsOQyv3Z259mKq8P403gRfDvbvtdpyrHwDObQGTICZ2qkqRiL27+rJSNziGMuVLQ==",
-      "type": "package",
-      "path": "acamti.jsonpatchdocument.mapper/1.0.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "acamti.jsonpatchdocument.mapper.1.0.1.nupkg.sha512",
-        "acamti.jsonpatchdocument.mapper.nuspec",
-        "lib/netstandard2.1/Acamti.JsonPatchDocument.Mapper.dll"
-      ]
-    },
     "Azure.Core/1.24.0": {
       "sha512": "+/qI1j2oU1S4/nvxb2k/wDsol00iGf1AyJX5g3epV7eOpQEP/2xcgh/cxgKMeFgn3U2fmgSiBnQZdkV+l5y0Uw==",
       "type": "package",
@@ -4010,7 +3985,6 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "Acamti.JsonPatchDocument.Mapper >= 1.0.1",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 7.0.0",
       "Microsoft.EntityFrameworkCore >= 7.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.0",
@@ -4024,11 +3998,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\angular9\\albar2022\\WebAPI\\WebAPI.csproj",
+      "projectUniqueName": "C:\\angular9\\albar2022\\WebAPI\\WebAPI.csproj",
       "projectName": "WebAPI",
-      "projectPath": "c:\\angular9\\albar2022\\WebAPI\\WebAPI.csproj",
+      "projectPath": "C:\\angular9\\albar2022\\WebAPI\\WebAPI.csproj",
       "packagesPath": "C:\\Users\\guyle\\.nuget\\packages\\",
-      "outputPath": "c:\\angular9\\albar2022\\WebAPI\\obj\\",
+      "outputPath": "C:\\angular9\\albar2022\\WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\guyle\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4057,10 +4031,6 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
-          "Acamti.JsonPatchDocument.Mapper": {
-            "target": "Package",
-            "version": "[1.0.1, )"
-          },
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
             "target": "Package",
             "version": "[7.0.0, )"

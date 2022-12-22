@@ -13,7 +13,8 @@ import { UserLogin } from 'src/app/model/userLogin';
 })
 export class UserLoginComponent implements OnInit {
 
-  constructor(private fb: FormBuilder,private userService:UserService,private alertService:AlertsService,private router: Router) { };
+  constructor(private fb: FormBuilder, private userService: UserService, private alertService: AlertsService, private router: Router,
+  private authService:AuthService) { };
   loginForm!: FormGroup;
   userLogin!: UserLogin;
   ngOnInit() {
@@ -37,12 +38,24 @@ export class UserLoginComponent implements OnInit {
    userData(): UserLogin {
     return this.userLogin = {
       email: this.email.value,
-      password: this.password.value
+      password: this.password.value,
+      token:""
     }
 
   }
   onLogin() {
-    this.router.navigate(['/']);
+    this.authService.login(this.userData()).subscribe(
+      response => {
+        this.userLogin=response
+        localStorage.setItem('token', this.userLogin.token);
+                localStorage.setItem('email',    this.userLogin.email);
+
+        this.alertService.success("login successfuly");
+     this.loginForm.reset();
+      this.router.navigate(['/']);
+      }
+    );
+
     /*const token = this.authService.authUser(loginForm.value);
     if (token) {
       this.alerts.success("login");

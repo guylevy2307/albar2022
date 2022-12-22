@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpErrorResponse, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { PropertyCarComponent } from './property/property-car/property-car.component';
 import { PropertyListComponent } from './property/property-list/property-list.component';
@@ -18,6 +18,7 @@ import { FilterPipe } from './Pipes/filter.pipe';
 import { SortPipe } from './Pipes/sort.pipe';
 import { CarService } from './services/car.service';
 import { EditCarComponent } from './property/edit-car/editCar/editCar.component';
+import { TokenInterceptor } from './services/token.interceptor';
 
 const appRoutes: Routes = [
   {
@@ -59,6 +60,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     HousingService,
     UserService,
     AlertsService,

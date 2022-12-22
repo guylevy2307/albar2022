@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\angular9\\albar2022\\WebAPI\\WebAPI.csproj": {}
+    "C:\\angular9\\albar2022\\WebAPI\\WebAPI.csproj": {}
   },
   "projects": {
-    "c:\\angular9\\albar2022\\WebAPI\\WebAPI.csproj": {
+    "C:\\angular9\\albar2022\\WebAPI\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\angular9\\albar2022\\WebAPI\\WebAPI.csproj",
+        "projectUniqueName": "C:\\angular9\\albar2022\\WebAPI\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "c:\\angular9\\albar2022\\WebAPI\\WebAPI.csproj",
+        "projectPath": "C:\\angular9\\albar2022\\WebAPI\\WebAPI.csproj",
         "packagesPath": "C:\\Users\\guyle\\.nuget\\packages\\",
-        "outputPath": "c:\\angular9\\albar2022\\WebAPI\\obj\\",
+        "outputPath": "C:\\angular9\\albar2022\\WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\guyle\\AppData\\Roaming\\NuGet\\NuGet.Config",

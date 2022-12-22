@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FY6gxVhqJkWJYaaRQzgoGb7NTPC12SfHCIMDCgilQThuEorqAvFQfkKp3QOeU9oPskeQew/99OtlD7Dso8Ln/w==",
+  "dgSpecHash": "kafI1FUw7dzWLazEeLH2X+GJBt/dVn1iSQarU8CD8VUupmEFACZYMzifurNXQRcY1l9j2EvxB2XMSA0rnTJjzQ==",
   "success": true,
-  "projectFilePath": "c:\\angular9\\albar2022\\WebAPI\\WebAPI.csproj",
+  "projectFilePath": "C:\\angular9\\albar2022\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\guyle\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\guyle\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

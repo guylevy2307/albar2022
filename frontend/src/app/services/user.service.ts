@@ -15,7 +15,7 @@ export class UserService {
     })
    };
 constructor(private http: HttpClient) { }
-serverUrl="http://localhost:5049/api/user/"
+serverUrl="http://localhost:5049/api/user"
   addUser(addedUser: User): Observable<any>{
 
   return this.http.post(this.serverUrl+"/register", addedUser, this.httpOptions);

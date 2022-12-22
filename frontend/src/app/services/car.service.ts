@@ -10,11 +10,11 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class CarService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private alerts: AlertsService) { }
    httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
-      'Authorization': 'my-auth-token'
+      'Authorization': ''
     })
    };
   serverUrl="http://localhost:5049/api"
@@ -23,7 +23,7 @@ export class CarService {
   }
   updateCarPrice(id: number, newPrice: number): Observable<any> {
 
-    return this.http.patch(this.serverUrl + "/car/" + id,[{ "op": "replace","path":"/price","value": newPrice}], this.httpOptions);
+    return this.http.patch(this.serverUrl + "/car/" + id,[{ "op": "replace","path":"/price","price": newPrice}], this.httpOptions);
   }
   getCarPrice(id: number)
   : Observable<any> {

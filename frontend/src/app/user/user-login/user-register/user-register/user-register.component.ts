@@ -55,7 +55,11 @@ export class UserRegisterComponent implements OnInit {
 
   onSubmit() {
     if (this.registerationForm.valid) {
-    this.userService.addUser(this.userData());
+      this.userService.addUser(this.userData()).subscribe(
+        data => {
+          this.userData=data
+      }
+    );
       this.registerationForm.reset();
       this.alertService.success("User added successfully! ");
       this.router.navigate(['/user/login'])
